@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eason的個人網頁</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <!-- Custom CSS -->
+    <style>
+        body { padding-top: 56px; }
+        .navbar-collapse {
+            justify-content: flex-end; /* 向右對齊 */
+        }
+        /* 導航列風格 */
+        .navbar {
+            background-color: #ebdfbb !important; /* 奶黃色背景，與主體風格一致 */
+            box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.1); /* 添加陰影 */
+        }
+        @media screen and (max-width: 767px) {
+            .navbar {
+                padding-top: 1.2rem; /* 上方間隔 */
+                padding-bottom: 1.2rem; /* 下方間隔 */
+            }
+            
+        }
+
+        /* 導航品牌名稱風格 */
+        .navbar-brand {
+            color: #5d4037 !important; /* 深棕色 */
+        }
+
+        /* 導航項目風格 */
+        .nav-link {
+            color: #795548 !important; /* 棕色，使用 !important 以覆蓋 BS5 的預設顏色 */
+            font-weight: bold; /* 粗體 */
+        }
+
+        /* 導航項目懸停效果 */
+        .nav-link:hover {
+            color: #3e2723 !important; /* 更深的棕色，添加懸停效果 */
+        }
+
+        /* 在小屏幕上，避免導航列遮蓋內容 */
+        @media (max-width: 767px) {
+            body { padding-top: 76px; }
+        }
+
+        .main-banner {
+            height: 600px; /* 增加高度 */
+            background: url('f5aba63c-82f0-4417-ba61-40c6146dfe23.jpg'); /* 更換背景圖片 */
+            background-size: cover;
+            display: flex;
+            align-items: center; /* 垂直居中 */
+            justify-content: center; /* 水平居中 */
+            position: relative; /* 為底部文字定位 */
+        }
+        .main-banner h1 {
+            font-size: 4rem; /* 增加字體大小 */
+            color: #fff; /* 字體顏色 */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* 添加文字陰影 */
+        }
+        .floating-effect {
+            animation: float 3s ease-in-out infinite; /* 添加浮動效果 */
+        }
+        .main-banner-text {
+            position: absolute;
+            bottom: 20px; /* 放在底部 */
+            left: 45%;
+            transform: translateX(-50%); /* 水平居中 */
+            color: #252222; /* 文字顏色 */
+            text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5); /* 文字陰影 */
+            text-align: center; /* 文字居中 */
+        }
+
+        /* 在小尺寸的螢幕（例如手機）上的樣式 */
+        @media (max-width: 575px) {
+            .main-banner-text {
+                left: 40%;
+            }
+        }
+
+        /* 在更小尺寸的螢幕上 */
+        @media (max-width: 479px) {
+            .main-banner-text {
+                left: 35%;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .main-banner h1 {
+                font-size: 2.5rem; /* 適用於小屏幕的字體大小 */
+            }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
+        }
+        /* Material Design 風格的基本設置 */
+        .material-section {
+            background-color: #fff8e1; /* 奶黃色背景 */
+            border-radius: 15px; /* 圓角邊框 */
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* 輕微的陰影效果 */
+            margin-bottom: 30px; /* 底部間隔 */
+            padding: 20px; /* 內部填充 */
+            transition: box-shadow 0.3s; /* 陰影過渡效果 */
+        }
+
+        .material-section:hover {
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.3); /* 滑鼠懸停時的陰影效果 */
+        }
+
+        /* 標題風格 */
+        .material-section h2 {
+            color: #795548; /* 棕色 */
+            margin-bottom: 20px; /* 底部間隔 */
+            font-weight: bold; /* 粗體 */
+        }
+
+        /* 文本風格 */
+        .material-section p {
+            color: #5d4037; /* 深棕色 */
+        }
+
+
+        /* SWOT 分析項目的基本樣式 */
+        .swot-item {
+            background-color: #fff8e1; /* 奶黃色背景 */
+            border-radius: 15px; /* 圓角邊框 */
+            border: 2px solid #bcaaa4; /* 深色邊框 */
+            margin: 5px; /* 間隔 */
+            padding: 15px; /* 內部填充 */
+            transition: transform 0.3s, box-shadow 0.3s; /* 過渡效果 */
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* 輕微的陰影效果 */
+        }
+        
+        @media (min-width: 992px){
+            .skill-item-lg{
+                width: 23%; /* 每行 4 個子容器 */
+            }
+        }
+
+        .swot-item:hover {
+            transform: scale(1.05); /* 滑鼠懸停時放大 */
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3); /* 增強陰影效果 */
+        }
+
+        /* 根據不同類別變更邊框顏色 */
+        .swot-item[data-category="strengths"] {
+            border-color: #388e3c; /* 綠色 */
+        }
+
+        .swot-item[data-category="weaknesses"] {
+            border-color: #d32f2f; /* 紅色 */
+        }
+
+        .swot-item[data-category="opportunities"] {
+            border-color: #1976d2; /* 藍色 */
+        }
+
+        .swot-item[data-category="threats"] {
+            border-color: #ffa000; /* 橙色 */
+        }
+        .skill-box{
+            /* 水平距離相等 */
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* 手機板 skill-box */
+        @media (max-width: 991px){
+            .skill-box > div{
+                box-sizing: content-box!important;
+            }
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(93, 64, 55, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+        }
+
+
+        /* 聯絡方式區塊的風格 */
+        .fa {
+            color: #5d4037; /* 深棕色 */
+            margin-right: 10px; /* 圖標與文字之間的間隔 */
+        }
+
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // 添加點擊事件到導航項目
+            document.querySelectorAll('.navbar-nav .nav-item .nav-link').forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault(); // 防止預設點擊行為
+
+                    let targetId = this.getAttribute('href'); // 獲取目標元素的 ID
+                    let targetElement = document.querySelector(targetId); // 獲取目標元素
+
+                    if (targetElement) {
+                        let offsetTop = targetElement.offsetTop; // 獲取元素的頂部位置
+                        let offset = 70; // 預留的空間，根據需要調整
+
+                        window.scrollTo({ 
+                            top: offsetTop - offset, // 計算最終滾動位置
+                            behavior: "smooth" // 平滑滾動效果
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Eason的網頁</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">關於我</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">專長</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">聯絡方式</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Banner -->
+    <div class="main-banner text-center">
+        <div class="container">
+            <h1 class="">歡迎來到Eason的網站!</h1>
+            <p class="main-banner-text floating-effect">向下滑動了解更多</p>
+        </div>
+    </div>
+
+    <!-- About Me Section -->
+    <section id="about" class="container my-5 material-section">
+        <h2>關於我</h2>
+        <p>哈囉！我是Eason，一個台灣大學的學生，專注於電力網路系統。我從高職電機科開始對電力系統感興趣，那真的超酷的！因為這份興趣，我決定在大學進一步研究先進的電力網路技術。</p>
+        <p>除了學術上的事，我還對程式設計超有興趣。從Python到JavaScript，我自學了好幾種程式語言，還開發了一些小專案。這些經驗不只讓我技術更強，還提升了我的創新思維和解決問題的能力。</p>
+        <p>在未來，我希望能把我學到的東西用在更多領域，對世界有正面的影響。如果你對我的研究或經歷有興趣，歡迎聯絡我，一起討論合作的可能！</p>
+    </section>
+
+
+    <!-- Skills Section -->
+    <section id="skills" class="container my-5 material-section">
+        <h2>我的專長 - SWOT分析</h2>
+        <div class="row skill-box">
+            <!-- 優勢 -->
+            <div class="skill-item-lg col-11 swot-item" data-category="strengths">
+                <h3>優勢</h3>
+                <p>專注於電力網路系統研究，具有深厚的理論基礎和創新思維。對於新技術的學習充滿熱情，致力於將理論知識應用於實際問題解決。</p>
+            </div>
+            <!-- 劣勢 -->
+            <div class="skill-item-lg col-11 swot-item" data-category="weaknesses">
+                <h3>劣勢</h3>
+                <p>雖然對學習充滿熱情，但在實際應用和深入專業技能方面仍處於學習階段。面對複雜的技術挑戰時，可能需要更多的實踐經驗和專業指導。</p>
+            </div>
+            <!-- 機會 -->
+            <div class="skill-item-lg col-11 swot-item" data-category="opportunities">
+                <h3>機會</h3>
+                <p>隨著科技的快速發展，有豐富的學習資源和實踐機會，可以透過參與項目和合作來增強專業技能。積極的學習態度和對新技術的興趣為未來的職業發展創造廣闊的可能性。</p>
+            </div>
+            <!-- 威脅 -->
+            <div class="skill-item-lg col-11 swot-item" data-category="threats">
+                <h3>威脅</h3>
+                <p>技術領域的快速變化要求持續更新知識和技能。同時，在高度競爭的環境中，需要不斷提升自己以保持競爭力，並有效管理學習和工作之間的平衡。</p>
+            </div>
+
+
+        </div>
+    </section>
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="container my-5 material-section text-center">
+        <h2>聯絡方式</h2>
+        <p>有興趣合作或者交流？請通過以下方式聯絡我。</p>
+        <div>
+            <!-- GitHub Icon -->
+            <a href="https://github.com/aaaaEason" class="fa d-block mb-3">
+                <i class="fab fa-github fa-2x"></i>
+                <p>GitHub</p>
+            </a>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="bg-light text-center text-lg-start">
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © Copyright 2023 Eason on NCUE EE 114 Reading Club
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
